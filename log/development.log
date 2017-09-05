@@ -761,3 +761,43 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/edit.html.erb within layouts/application (16.0ms)
 Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-09-05 08:12:06 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Logan/.rvm/gems/ruby-2.3.3/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 22ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2017-09-05 08:12:10 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 391ms (Views: 388.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2017-09-05 08:12:15 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 53ms (Views: 44.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2017-09-05 08:12:23 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"46sEpVcSk1+eAckYBpY0MIMTsMrlpiLN7U4grruS/D0EavgP6ncKB6q5T7QELkBKRbKuTKTVCwnHydHCHw0nDg==", "post"=>{"title"=>"cool", "description"=>"bery cool\r\n"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2017-09-05 08:12:23 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 26ms (Views: 25.2ms | ActiveRecord: 0.1ms)
